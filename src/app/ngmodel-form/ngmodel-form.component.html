@@ -1,0 +1,65 @@
+<form #f="ngForm" (submit)="getdata(f)">
+  <div class="form-group">
+
+    <div ngModelGroup="contact">
+      <label for="firstName">First Name</label>
+      <input class="form-control" required pattern="Amit" minlength="3" maxlength="10" ngModel #firstName="ngModel"
+        (change)="onchange(firstName)" type="text" name="firstname" id="firstName">
+
+      <!-- printing all error -->
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.control.errors?.['required']">First name is required</div>
+        <div *ngIf="firstName.control.errors?.['minlength']">Minimum length is
+          {{firstName.control.errors?.['minlength'].requiredLength}} characters</div>
+        <div *ngIf="firstName.control.errors?.['pattern']">Invalid input. Must match the pattern 'Amit'</div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+  <div class="form-group">
+    <label for="comment">comment</label>
+    <textarea class="form-control" id="comment" ngModel #comment="ngModel" name="comment" cols="30"
+      rows="10"></textarea>
+  </div>
+
+  
+  <!-- radio button -->
+  <div class="radio" *ngFor="let d of data">
+    <label for="radiobun" >
+      <input  ngModel type="radio" name="radiobun" [value]="d.id">
+      {{d.method}}
+    </label>
+  </div>
+
+  <!-- working with dropdown -->
+  <div class="form-group">
+    <label for="dropdown">select contact method</label>
+    <select class="form-control" ngModel #dropdown="ngModel" name="dropdown">
+      <option value=""></option>
+      <option *ngFor="let val of data" [value]="val.id">{{val.method}}</option>
+    </select>
+  </div>
+
+
+
+  
+  <!-- working with checkbox -->
+  <div class="form-group">
+    <input type="checkbox" ngModel #isSub="ngModel" name="isSub">Tick to Subscribe...
+  </div>
+
+  <p>{{f.value | json}}</p>
+
+
+
+  <div style="margin-top: 3px;">
+    <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+  </div>
+  
+
+</form>
+

@@ -1,0 +1,10 @@
+<form>
+    <label for="data">Make Todo</label>
+    <input #topic type="text" name="data" class="form-control" (keyup.ENTER)="accept(topic)">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let topic of topics.controls" (click)= "remove(topic) ">
+            {{topic.value}}         (click to delete)
+            
+        </li>
+    </ul>
+</form>

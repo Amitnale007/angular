@@ -1,0 +1,27 @@
+<form [formGroup]="form" >
+    <div class="form-group">
+        <label for="old">Old Password</label>
+        <input required type="password" formControlName="oldpass" class="form-control">
+        <div class="alert alert-danger" *ngIf="oldpass.invalid && oldpass.touched">
+            <div *ngIf="oldpass.errors?.['required']">Old pass can't be Empty</div>
+            <div *ngIf="oldpass.errors?.['match']">Old pass not match</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="new">New Password</label>
+        <input required type="password" formControlName="newpass" class="form-control">
+        <div class="alert alert-danger" *ngIf="newpass.invalid && newpass.touched">
+            <div *ngIf="newpass.errors?.['required']">new pass can't be Empty</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="con">Confirm Password</label>
+        <input required type="password" formControlName="conpass" class="form-control">
+        <div class="alert alert-danger" *ngIf="conpass.invalid && conpass.touched">
+            <div *ngIf="conpass.errors?.['required']">confirm password empty</div>
+        </div>
+        <div class="alert alert-danger" *ngIf="conpass.valid && form.invalid && form.errors?.['detect']">Both pass Not match</div>
+    </div>
+    <button type="button" class="btn btn-outline-primary">Submit</button>
+    
+</form>

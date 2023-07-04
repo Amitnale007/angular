@@ -1,0 +1,18 @@
+<p>Assignment zippy</p>
+<div class="zippy">
+    <div class="zippy-head"
+    [class.expanded]="isexpand"
+    (click)="onclick()"
+    >
+        {{title}}
+    <span class="bi" 
+    [ngClass]="{
+        'bi-arrow-bar-up':isexpand,
+        'bi-arrow-bar-down':!isexpand
+    }"
+    ></span>
+    </div>
+    <div *ngIf="isexpand" class="zippy-body">
+        <ng-content></ng-content>
+    </div>
+</div>

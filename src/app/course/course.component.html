@@ -1,0 +1,9 @@
+<h3>Courses(ngif/ngfor)</h3>
+<button type="button" class="btn btn-outline-primary btn-sm" (click)="onadd()">Add</button>
+
+<ul>
+    <li *ngIf="courses.length == 0 "> NO COURSES YET</li>
+    <li *ngFor="let data of courses; index as i" >{{i}} : {{data}} (data from ngfor) 
+        <button type="button" class="btn btn-outline-primary btn-sm" (click)="onremove(data)">Remove</button>
+    </li>
+</ul>

@@ -1,0 +1,16 @@
+<p>class binding here</p>
+<span class="bi"
+[class.bi-star]= "istrue" 
+[class.bi-star-fill]= "!istrue"
+(click)="onchange()"
+></span>
+
+<p>ngclass uses(simple)</p>
+
+<span class="bi"
+[ngClass]="{
+    'bi bi-star': istrue, 
+    'bi bi-star-fill':!istrue
+}"
+(click)="onchange()"
+></span>
