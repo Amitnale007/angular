@@ -1,9 +1,9 @@
-<h1>Mosh github Followers</h1>
+<h1>Github Followers Fetch By API</h1>
 <div class="media" style="margin-top: 30px;" *ngFor="let p of post">
     <img class="avatar align-self-start mr-3" src="{{p.avatar_url}}" alt="Generic placeholder image">
     <div class="media-body">
       <h4 class="media-heading">
-        <a [routerLink]="['/followers',p.id]">{{p.login}} </a>
+        <a [routerLink]="['/followers',p.id,p.login]">{{p.login}} </a>
       </h4>
       <a href="{{p.html_url}}">{{p.html_url}}</a>
     </div>

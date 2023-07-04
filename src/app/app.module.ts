@@ -67,10 +67,12 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       {path : '' , redirectTo:'/followers', pathMatch: 'full'},
       {path:'followers',component:MoshGitComponent},
-      {path:'followers/:id',component: GithubProfileComponent},
+      {path:'followers/:id/:username',component: GithubProfileComponent},
       {path:'followers',component:MoshGitComponent},
       {path:'todo',component:TodoComponent},
       {path:'courses',component: CreateCourseComponent},
+      {path:'changepass',component:ChangePswComponent},
+      {path:'signup',component: SignupFormComponent},
       {path:'**',component:NotFoundComponent},
 
     ])

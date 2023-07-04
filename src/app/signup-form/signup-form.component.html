@@ -1,3 +1,5 @@
+<h1>Reactive Form</h1>
+<p>amit username already taken validation</p>
 <form [formGroup]="form" (ngSubmit)="login()">
     <div *ngIf="form.errors" class="alert alert-danger">Username or password is Invalid</div>
     <div class="form-group">
